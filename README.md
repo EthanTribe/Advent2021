@@ -17,4 +17,4 @@ Day 5
 ![day5](https://github.com/EthanTribe/Advent2021/blob/main/Advent5.jpg)
 
 Day 9
-![day9](https://github.com/EthanTribe/Advent2021/blob/main/Advent9.jpg)
+![day9](https://github.com/EthanTribe/Advent2021/blob/main/Advent9%20(2000).jpg)
