@@ -6,3 +6,6 @@ A python program that zooms into part of the Mandelbrot set each day, generating
 [Advent_2021_precise.py](https://github.com/EthanTribe/Advent2021/blob/main/Advent%202021%20precise.py) is needed due to the low default precision of Python floats, otherwise past day __ the image's resolution will rapidly decrease.
 
 In parenthesis after images are the maximum number of iterations (`imax`) before a pixel is counted as being in the Mandelbrot set, which effects the clarity, colour distribution, and runtime of the program.
+
+Day 2
+![day2](https://github.com/EthanTribe/Advent2021/blob/main/Advent2.jpg)
