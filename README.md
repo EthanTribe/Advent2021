@@ -9,3 +9,12 @@ In parenthesis after images are the maximum number of iterations (`imax`) before
 
 Day 2
 ![day2](https://github.com/EthanTribe/Advent2021/blob/main/Advent2.jpg)
+
+Day 4
+![day4](https://github.com/EthanTribe/Advent2021/blob/main/Advent4.jpg)
+
+Day 5
+![day5](https://github.com/EthanTribe/Advent2021/blob/main/Advent5.jpg)
+
+Day 9
+![day9](https://github.com/EthanTribe/Advent2021/blob/main/Advent9.jpg)
