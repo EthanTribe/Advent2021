@@ -11,15 +11,19 @@ day = 15#int(date.today().strftime('%d'))
 print(day)
 
 from decimal import *
+# set precision
 getcontext().prec = day + 5
+
+# define focus point of zoom
 focusPointReal = Decimal('-0.743643887037158704752191506114774')
 focusPointImag = Decimal('0.131825904205311970493132056385139')
 
+# number of iterations run through before point is marked as in the set
 imax = 15000
 
 decimal0 = Decimal(0)
 decimal4 = Decimal(4)
-# define the function to iterate the Mbrot sequence
+# define the function to iterate the Mandelbrot sequence (z_{n+1} = z_n**2 + c)
 def inSet(cx, cy):               
     i = 0
     ix, iy, ix2, iy2 = decimal0, decimal0, decimal0, decimal0
@@ -31,17 +35,17 @@ def inSet(cx, cy):
         i = i + 1
     return i
 
-# set-up the array representing the complex plane
+# prepare the axis thingys
 dim = 192*2
 width = Decimal(10)**Decimal(-day)
 xmin,xmax = focusPointReal-width, focusPointReal+width
 ymin,ymax = focusPointImag-width*Decimal(9/16), focusPointImag+width*Decimal(9/16)
-xStep = (xmax - xmin) / (Decimal(dim)-1)
+xStep = (xmax - xmin) / (Decimal(dim)-1) # distance betweem sampled points
 xList = [xmin + Decimal(i) * xStep for i in range(dim)]
 yStep = (ymax - ymin) / (Decimal(dim*9/16)-1)
 yList = [ymin + Decimal(i) * yStep for i in range(dim*9//16)]
 
-points = np.zeros((len(yList),len(xList)))
+points = np.zeros((len(yList),len(xList))) # initialise the matrix representing the complex plane
 lastPause = start
 percentageRowsDoneCounter = 0
 for i in range(len(xList)-1,-1,-1):
@@ -55,6 +59,7 @@ for i in range(len(xList)-1,-1,-1):
         pointIn = inSet(xList[i],yList[j])
         points[j,i] = pointIn
 
+# make the jpg from the matrix etc.
 plt.ion()
 fig = plt.figure()
 fig.set_size_inches((1.6,.9))
@@ -70,6 +75,7 @@ cax = ax.matshow(points**power, cmap=cmaps[cmapsOrder[day]], origin='lower')#np.
 plt.axis('off')
 plt.savefig('Advent{} ({}).jpg'.format(day, imax), format='jpg', dpi=2400)
 
+# some stats for this zoom
 print("Mean: ", round(np.average(points)))
 print("Median: ", round(np.median(points)))
 numImax = len(np.where(points==imax)[0])
